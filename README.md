@@ -143,6 +143,6 @@ For more details, check out Snowflake’s official documentation:
 - [Cortex Analyst](https://docs.snowflake.com/user-guide/snowflake-cortex/cortex-analyst)
 
 ## Kudos
-Big thanks to my colleague Tom Christian who took the Streamlit App to the next level:
-[GitHub Profile](https://github.com/username.png)  
+Big thanks to my colleague Tom Christian who took the Streamlit App to the next level:  
+![GitHub Profile](https://github.com/username.png)  
 [GitHub User](https://github.com/username)
