@@ -144,5 +144,5 @@ For more details, check out Snowflake’s official documentation:
 
 ## Kudos
 Big thanks to my colleague Tom Christian who took the Streamlit App to the next level:  
-![GitHub Profile](https://github.com/username.png)  
-[GitHub User](https://github.com/username)
+![GitHub Profile](https://github.com/sfc-gh-tchristian)  
+[GitHub User](https://github.com/sfc-gh-tchristian)
