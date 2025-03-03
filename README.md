@@ -141,3 +141,8 @@ For more details, check out Snowflake’s official documentation:
 - [Cortex Agents](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents)
 - [Cortex Search](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview)
 - [Cortex Analyst](https://docs.snowflake.com/user-guide/snowflake-cortex/cortex-analyst)
+
+## Kudos
+Big thanks to my colleague Tom Christian who took the Streamlit App to the next level:
+[GitHub Profile](https://github.com/username.png)  
+[GitHub User](https://github.com/username)
