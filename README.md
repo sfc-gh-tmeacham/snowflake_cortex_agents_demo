@@ -39,7 +39,7 @@ Make sure to select the following services:
 - **ANNUAL_REPORTS_SEARCH**
 - **semantic_models/sales_orders.yaml**
 
-### **Questions for Structured Data**  
+### **Questions for Structured Data**
 These queries operate on structured, tabular data sources.
 
 | Question | Data Complexity | Level |
@@ -170,3 +170,4 @@ For more details, check out Snowflake’s official documentation:
 ## Kudos  
 A huge shoutout to my colleague [Tom Christian](https://github.com/sfc-gh-tchristian) for elevating the Streamlit app to the next level! 🚀   
 ![GitHub Profile](https://github.com/sfc-gh-tchristian.png?size=50)  
+
