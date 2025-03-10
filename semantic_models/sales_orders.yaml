@@ -23,10 +23,6 @@ tables:
       - name: PRODUCT
         expr: PRODUCT
         data_type: VARCHAR(16777216)
-        sample_values:
-          - Iron Pipes
-          - Steel Rods
-          - Aluminum Sheets
         description: Type of product ordered by the customer.
         synonyms:
           - item
@@ -40,10 +36,6 @@ tables:
       - name: COUNTRY
         expr: COUNTRY
         data_type: VARCHAR(16777216)
-        sample_values:
-          - UK
-          - France
-          - Italy
         description: The country where the order was shipped or originated from.
         synonyms:
           - nation
@@ -57,6 +49,10 @@ tables:
           - province
           - nationality
         cortex_search_service_name: CORTEX_AGENTS_DEMO.PUBLIC.COUNTRY_SEARCH
+        cortex_search_service:
+          database: CORTEX_AGENTS_DEMO
+          schema: PUBLIC
+          service: COUNTRY_SEARCH
       - name: STATUS
         expr: STATUS
         data_type: VARCHAR(16777216)
@@ -73,23 +69,6 @@ tables:
           - position
           - situation
           - phase
-    measures:
-      - name: QUANTITY
-        expr: QUANTITY
-        data_type: NUMBER(38,0)
-        sample_values:
-          - '243'
-          - '360'
-          - '139'
-        description: The number of items ordered in each transaction.
-        synonyms:
-          - amount
-          - count
-          - volume
-          - size
-          - num_items
-          - units
-          - qty
     primary_key:
       columns:
         - ORDER_ID
@@ -109,6 +88,23 @@ tables:
           - transaction_date
           - sale_date
           - date_of_order
+    facts:
+      - name: QUANTITY
+        expr: QUANTITY
+        data_type: NUMBER(38,0)
+        sample_values:
+          - '243'
+          - '360'
+          - '139'
+        description: The number of items ordered in each transaction.
+        synonyms:
+          - amount
+          - count
+          - volume
+          - size
+          - num_items
+          - units
+          - qty
   - name: PRODUCTS
     base_table:
       database: CORTEX_AGENTS_DEMO
@@ -118,10 +114,6 @@ tables:
       - name: PRODUCT
         expr: PRODUCT
         data_type: VARCHAR(16777216)
-        sample_values:
-          - Iron Pipes
-          - Steel Rods
-          - Aluminum Sheets
         description: This column categorizes products into different types, such as Iron Pipes, Steel Rods, and Aluminum Sheets, to enable analysis and reporting by product category.
         synonyms:
           - item
@@ -133,7 +125,14 @@ tables:
           - stock
           - produce
         cortex_search_service_name: CORTEX_AGENTS_DEMO.PUBLIC.PRODUCT_SEARCH
-    measures:
+        cortex_search_service:
+          database: CORTEX_AGENTS_DEMO
+          schema: PUBLIC
+          service: PRODUCT_SEARCH
+    primary_key:
+      columns:
+        - PRODUCT
+    facts:
       - name: UNIT_PRICE
         expr: UNIT_PRICE
         data_type: FLOAT
@@ -152,9 +151,6 @@ tables:
           - retail_price
           - base_price
           - standard_price
-    primary_key:
-      columns:
-        - PRODUCT
   - name: CUSTOMER_ORDERS
     base_table:
       database: CORTEX_AGENTS_DEMO
@@ -164,10 +160,6 @@ tables:
       - name: CUSTOMER
         expr: CUSTOMER
         data_type: VARCHAR(16777216)
-        sample_values:
-          - Gamma Inc
-          - Beta Ltd
-          - Epsilon SA
         description: The name of the customer who placed the order.
         synonyms:
           - client
@@ -177,6 +169,10 @@ tables:
           - shopper
           - consumer
         cortex_search_service_name: CORTEX_AGENTS_DEMO.PUBLIC.CUSTOMER_SEARCH
+        cortex_search_service:
+          database: CORTEX_AGENTS_DEMO
+          schema: PUBLIC
+          service: CUSTOMER_SEARCH
       - name: ORDER_ID
         expr: ORDER_ID
         data_type: VARCHAR(16777216)

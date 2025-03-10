@@ -32,6 +32,18 @@ Cortex Agents follow a structured approach to problem-solving:
 This is the App you will build:
 [![Cortex Chat App](resources/github_video_image.png)](https://www.youtube.com/watch?v=XwmynoLVUqw)
 
+# Example Questions for the app (assuming you selected relevant services)
+### Questions for Structured Data
+* What was the order revenue per month for steel for my customer Delta?
+* Give me the current aggregated status of orders from my customer Gamma that contain Aluminium.
+### Questions for Structured Data
+* What were the latest AI innovations from Googol in 2024?
+** This uses a single text chunk from a single document (easy)
+* What was the net profit for Delta in 2024 and which people were part of the board?
+** This uses two chunks from a single document (medium)
+* What was the combined net profit for Googol and Delta in 2024?
+** This uses two chunks from two documents and combines the results (hard)
+
 ## Prerequisites
 - A Snowflake Account
 - 5 Minutes time  
