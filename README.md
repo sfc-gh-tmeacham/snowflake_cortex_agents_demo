@@ -32,9 +32,12 @@ Cortex Agents follow a structured approach to problem-solving:
 This is the App you will build:
 [![Cortex Chat App](resources/github_video_image.png)](https://www.youtube.com/watch?v=XwmynoLVUqw)
 
-#### Selected Services:
-- 🗂 **ANNUAL_REPORTS_SEARCH**
-- 📊 **semantic_models/sales_orders.yaml**
+
+## Example Questions
+### Selected Services:
+Make sure to select the following services:  
+- **ANNUAL_REPORTS_SEARCH**
+- **semantic_models/sales_orders.yaml**
 
 ### **Questions for Structured Data**  
 These queries operate on structured, tabular data sources.
