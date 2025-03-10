@@ -32,26 +32,27 @@ Cortex Agents follow a structured approach to problem-solving:
 This is the App you will build:
 [![Cortex Chat App](resources/github_video_image.png)](https://www.youtube.com/watch?v=XwmynoLVUqw)
 
-# Example Questions for the app 
-This assumes you selected relevant services:
-* ANNUAL_REPORTS_SEARCH
-* semantic_models/sales_orders.yaml
+#### Selected Services:
+- 🗂 **ANNUAL_REPORTS_SEARCH**
+- 📊 **semantic_models/sales_orders.yaml**
 
-### Questions for Structured Data
-`What was the order revenue per month for steel for my customer Delta?`  
-`Give me the current aggregated status of orders from my customer Gamma that contain Aluminium.`  
-### Questions for Structured Data
-`What were the latest AI innovations from Googol in 2024?`  
+### **Questions for Structured Data**  
+These queries operate on structured, tabular data sources.
 
-This uses a single text chunk from a single document (**easy**)  
+| Question | Data Complexity | Level |
+|----------|----------------|--------|
+| What was the total order quantity per month with status shipped? | Single table, no Search Integration | 🟢 **Easy** |
+| What was the total order quantity per month for United Kingdom with status shipped? | Single table, 1 Search Integration | 🟡 **Medium** |
+| What was the order revenue per month for steel for my customer Delta? | 3 tables, 2 Search Integrations | 🔴 **Hard** |
 
-`What was the net profit for Delta in 2024 and which people were part of the board?`  
+### **Questions for Unstructured Data**  
+These queries analyze text-based documents.
 
-This uses two chunks from a single document (**medium**)  
-
-`What was the combined net profit for Googol and Delta in 2024?`  
-
-This uses two chunks from two documents and combines the results (**hard**)  
+| Question | Data Complexity | Level |
+|----------|----------------|--------|
+| What were the latest AI innovations from Googol in 2024? | Single text chunk | 🟢 **Easy** |
+| What was the net profit for Delta in 2024 and which people were part of the board? | Two chunks from one document | 🟡 **Medium** |
+| What was the combined net profit for Googol and Delta in 2024? | Two chunks from two documents | 🔴 **Hard** |
 
 ## Prerequisites
 - A Snowflake Account
