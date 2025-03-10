@@ -32,7 +32,11 @@ Cortex Agents follow a structured approach to problem-solving:
 This is the App you will build:
 [![Cortex Chat App](resources/github_video_image.png)](https://www.youtube.com/watch?v=XwmynoLVUqw)
 
-# Example Questions for the app (assuming you selected relevant services)
+# Example Questions for the app 
+This assumes you selected relevant services:
+* ANNUAL_REPORTS_SEARCH
+* semantic_models/sales_orders.yaml
+
 ### Questions for Structured Data
 * What was the order revenue per month for steel for my customer Delta?
 * Give me the current aggregated status of orders from my customer Gamma that contain Aluminium.
