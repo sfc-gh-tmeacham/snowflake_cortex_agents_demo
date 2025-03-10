@@ -38,7 +38,7 @@ This assumes you selected relevant services:
 * semantic_models/sales_orders.yaml
 
 ### Questions for Structured Data
-* What was the order revenue per month for steel for my customer Delta?
+`What was the order revenue per month for steel for my customer Delta?`
 * Give me the current aggregated status of orders from my customer Gamma that contain Aluminium.
 ### Questions for Structured Data
 * What were the latest AI innovations from Googol in 2024?
