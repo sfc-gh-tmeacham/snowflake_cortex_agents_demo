@@ -55,7 +55,7 @@ These queries analyze text-based documents.
 |----------|----------------|--------|
 | What were the latest AI innovations from Googol in 2024? | Single text chunk | 🟢 **Easy** |
 | What was the net profit for Delta in 2024 and which people were part of the board? | Two chunks from one document | 🟡 **Medium** |
-| What was the combined net profit for Googol and Delta in 2024? | Two chunks from two documents | 🔴 **Hard** |
+| What was the combined net profit for Googol and Delta in 2024 according to their annual reports? | Two chunks from two documents | 🔴 **Hard** |
 
 ## Prerequisites
 - A Snowflake Account
