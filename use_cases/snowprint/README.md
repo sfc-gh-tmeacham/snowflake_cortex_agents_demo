@@ -24,13 +24,14 @@ This repository contains a **fictional dataset** from _Snowprint AG_. The datase
 - **Production Tracking**: Identify high-priority jobs, check which steps are completed, or spot delays in real time.
 - **Performance Analytics**: Calculate average lead times, track overall productivity, and improve scheduling and resource allocation.
 
-## Untructured Data & Use Cases
-As examples this demo contains two documents from _Heidelberger Druckmaschinen_. 
+## Unstructured Data & Use Cases
+As an example, this demo contains two documents from _Heidelberger Druckmaschinen_:
 
-| Filename                         | Description |
-|----------------------------------|-------------|
-| Prinect_Quick_Start_CR_en.pdf    | This document is the Prinect Manager CR Quick Start Guide, aimed at providing new users with a concise introduction to the Prinect system. It outlines the basic concepts and components of the Prinect Manager workflow, including job processing, user setup, and licensing. The guide offers step-by-step instructions for tasks such as creating print jobs, configuring sequence templates, and setting up printing equipment. It serves as a practical manual to quickly familiarize users with the operational aspects of the system in a digital print shop environment. |
-| Color_Management_2019_en.pdf     | This document is the Prinect Color Management 2019 User’s Guide, providing an in-depth overview of color management principles and practices in the Prinect workflow. It explains key concepts such as color space transformations, ICC profiles, and color gamuts. The guide discusses how various color spaces like RGB, CMYK, and CIEL*a*b* are utilized in print production to achieve accurate color reproduction. It also covers the standardized offset print process and quality control measures for maintaining consistency in color output. Designed for users in prepress and print production, it serves as a comprehensive reference for configuring and optimizing color settings. |
+| Filename                      | Description                                                                                                         |
+|------------------------------ |---------------------------------------------------------------------------------------------------------------------|
+| **Prinect_Quick_Start_CR_en.pdf** | A concise guide to the Prinect Manager workflow, covering job creation, user setup, and licensing with clear step-by-step examples. |
+| **Color_Management_2019_en.pdf**  | An in-depth overview of color management, explaining ICC profiles, color spaces, and best practices for consistent print output.  |
+
 
 ### Possible Business Use Cases
 
