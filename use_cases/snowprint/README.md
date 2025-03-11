@@ -1,10 +1,10 @@
-# DruckTech AG
+# SnowPrint AG
 
 ## Overview
-**DruckTech AG** is a global leader in industrial printing solutions, specializing in high-quality **offset and digital printing presses**, workflow automation, and post-press technologies. Our innovative solutions help print shops optimize efficiency, reduce waste, and achieve outstanding print quality. With a strong focus on **automation, digitalization, and sustainability**, DruckTech AG drives the future of modern printing. Decades of expertise and cutting-edge technology make us the trusted partner for the printing industry worldwide.
+**Snowprint AG** is a global leader in industrial printing solutions, specializing in high-quality **offset and digital printing presses**, workflow automation, and post-press technologies. Our innovative solutions help print shops optimize efficiency, reduce waste, and achieve outstanding print quality. With a strong focus on **automation, digitalization, and sustainability**, SnowPrint AG drives the future of modern printing. Decades of expertise and cutting-edge technology make us the trusted partner for the printing industry worldwide.
 
 ## Structured Data & Use Cases
-This repository contains a **fictional dataset** from _DruckTech AG_. The dataset is split into three core tables that capture different aspects of the company’s printing operations:
+This repository contains a **fictional dataset** from Snowprint AG_. The dataset is split into three core tables that capture different aspects of the company’s printing operations:
 
 1. **Customers**  
    Stores client information such as name, contact details, location, and phone numbers.  
