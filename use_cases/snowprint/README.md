@@ -1,5 +1,7 @@
 # SnowPrint AG
 
+![Cortex Agents](_resources/cortex_agents.png)
+
 ## Overview
 **Snowprint AG** is a global leader in industrial printing solutions, specializing in high-quality **offset and digital printing presses**, workflow automation, and post-press technologies. Our innovative solutions help print shops optimize efficiency, reduce waste, and achieve outstanding print quality. With a strong focus on **automation, digitalization, and sustainability**, SnowPrint AG drives the future of modern printing. Decades of expertise and cutting-edge technology make us the trusted partner for the printing industry worldwide.
 
