@@ -13,7 +13,7 @@ Cortex Agents orchestrate both structured and unstructured data sources to deliv
 - **Use Cortex Search** for unstructured data (extracting insights from documents and text).
 - **Generate responses** using LLMs based on your enterprise data.
 
-![Cortex Agents](resources/SnowPrint_header.png)
+![Cortex Agents](resources/cortex_agents.png)
 
 ## Cortex Agents Workflow
 Cortex Agents follow a structured approach to problem-solving:
