@@ -1,14 +1,17 @@
 # Cortex Agents in Snowflake
 
 ## Overview
-This repository provides a beginner-friendly demonstration of the power of Cortex Agents in Snowflake. The demo is structured as a Jupyter Notebook, guiding users through the setup of Cortex Search and Cortex Analyst Services. By combining multiple services, we then build a Cortex Agent capable of delivering accurate responses based on PDF documents and structured data stored across multiple Snowflake tables.
+This repository provides a beginner-friendly demonstration of the power of Cortex Agents in Snowflake. 
+There are multiple use cases available that you can explore in more detail in the use_cases folder.
+Each use case comes with a Snowflake Notebook that guides the users through the setup of Cortex Search and Cortex Analyst Services. 
+By combining multiple services, we then build a Cortex Agent capable of delivering accurate responses based on PDF documents and structured data stored across multiple Snowflake tables and documents.
 
 ## What are Cortex Agents?
 Cortex Agents orchestrate both structured and unstructured data sources to deliver actionable insights. They:
 - **Plan tasks**, selecting the right tools to execute them.
 - **Use Cortex Analyst** for structured data (generating SQL queries).
 - **Use Cortex Search** for unstructured data (extracting insights from documents and text).
-- **Generate responses** using LLMs based on enterprise data.
+- **Generate responses** using LLMs based on your enterprise data.
 
 ![Cortex Agents](resources/cortex_agents.png)
 
@@ -32,31 +35,6 @@ Cortex Agents follow a structured approach to problem-solving:
 This is the App you will build:
 [![Cortex Chat App](resources/github_video_image.png)](https://www.youtube.com/watch?v=XwmynoLVUqw)
 
-
-## Example Questions
-### Selected Services:
-Make sure to select the following services:  
-- **ANNUAL_REPORTS_SEARCH**
-- **semantic_models/sales_orders.yaml**
-
-### **Questions for Structured Data**
-These queries operate on structured, tabular data sources.
-
-| Question | Data Complexity | Level |
-|----------|----------------|--------|
-| What was the total order quantity per month with status shipped? | Single table, no Search Integration | 🟢 **Easy** |
-| What was the total order quantity per month for United Kingdom with status shipped? | Single table, 1 Search Integration | 🟡 **Medium** |
-| What was the order revenue per month for steel for my customer Delta? | 3 tables, 2 Search Integrations | 🔴 **Hard** |
-
-### **Questions for Unstructured Data**  
-These queries analyze text-based documents.
-
-| Question | Data Complexity | Level |
-|----------|----------------|--------|
-| What were the latest AI innovations from Googol in 2024? | Single text chunk | 🟢 **Easy** |
-| What was the net profit for Delta in 2024 and which people were part of the board? | Two chunks from one document | 🟡 **Medium** |
-| What was the combined net profit for Googol and Delta in 2024 according to their annual reports? | Two chunks from two documents | 🔴 **Hard** |
-
 ## Prerequisites
 - A Snowflake Account
 - 5 Minutes time  
@@ -67,6 +45,7 @@ Here you can get a free [Snowflake Trial Account](https://signup.snowflake.com/)
 All you need to do is to execute the following SQL statements in your Snowflake Account.  
 
 ```sql
+
 USE ROLE ACCOUNTADMIN;
 
 -- Create a warehouse
@@ -99,7 +78,10 @@ ALTER GIT REPOSITORY GITHUB_REPO_CORTEX_AGENTS_DEMO FETCH;
 -- Copy Streamlit App into to stage
 COPY FILES
   INTO @STREAMLIT_APP
-  FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/agent_app/;
+  FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/development/agent_app/;
+ALTER STAGE STREAMLIT_APP REFRESH;
+
+-- Refresh the stage (this can remain static)
 ALTER STAGE STREAMLIT_APP REFRESH;
 
 -- Create Streamlit App
@@ -109,25 +91,43 @@ CREATE OR REPLACE STREAMLIT CORTEX_AGENT_CHAT_APP
     QUERY_WAREHOUSE = COMPUTE_WH;
 ```
 
-## Objects you create in your Account
-| **Name**            | **Type**       | **Description**                                                       |
-|---------------------|----------------|-----------------------------------------------------------------------|
-| CORTEX_AGENTS_DEMO  | Databse        | Everything in this demo goes in here.                                 |
-| CUSTOMER_ORDERS     | Table          | Stores customers and their orders                                     |
-| ORDERS              | Table          | Details of customer orders                                            |
-| PRODUCTS            | Table          | Details of products                                                   |
-| RAW_TEXT            | Table          | Extractions from PDF (raw)                                            |
-| CHUNKED_TEXT        | Table          | Chunks of RAW_TEXT                                                    |
-| DOCUMENTS           | Stage          | Stage to store PDF Documents                                          |
-| SEMANTIC_MODELS     | Stage          | Stage to store Semantic Model Files (YAML)                            |
-| CORTEX_AGENTS_SETUP | Notebook       | Notebook showing how to setup Services for Cortex Agent               |
-| sales_orders.yaml   | Semantic Model | Input for Cortex Analyst to generate SQL Queries for Sales Order Data |
-| CORTEX_AGENTS_CHAT_APP   | Streamlit App | Chatbot Application to configure Cortex Agents and talk with your structured and unstructured data. |
+If you want to deploy the demo scenarios, you will need to run their setup.sql scripts:  
+**Main**
+```sql
+EXECUTE IMMEDIATE FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/use_cases/main/_internal/setup.sql
+  USING (BRANCH => 'main', EXECUTE_NOTEBOOKS => FALSE) DRY_RUN = FALSE;
+```
 
-To fully understand how the Agent works, I highly recommend to check out the Notebook that sets up the services the Agent is using.
+**SnowPrint**
+```sql
+EXECUTE IMMEDIATE FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/use_cases/snowprint/_internal/setup.sql
+  USING (BRANCH => 'main', EXECUTE_NOTEBOOKS => FALSE) DRY_RUN = FALSE;
+```
+
+If you want to run the notebook immediately to set up all the required Cortex Search and Cortex Analyst services, set `EXECUTE_NOTEBOOKS => TRUE`.  
+Otherwise you will have to open the provided Snowflake Notebook and run all cells before you see the services in the Streamlit App.
+
+## Objects Created in Your Snowflake Account
+
+In your Snowflake account, the demo resources are organized as follows:
+
+- **Database:**  
+  `CORTEX_AGENTS_DEMO` is the database where all demo-related objects are stored.
+
+- **Schemas:**  
+  - The **Streamlit Agent App** is located in the `PUBLIC` schema.  
+  - Each **use case** has its own schema. For example, if you install SnowPrint, a schema named `SNOWPRINT` will be created.
+
+- **For Each Use Case, the Following Objects Are Created:**  
+  - `DOCUMENTS` stage – Stores unstructured data (e.g., documents).  
+  - `SEMANTIC_MODELS` stage – Contains semantic models.  
+  - **Notebook** – Creates structured data and sets up Cortex Search services.
+
+To fully grasp how the Agent works, I highly recommend reviewing the **Notebook** for each use case. These notebooks set up the services that the Agent relies on.  
+In addition you should explore the semantic model in the [Snowsight Semantic Model Generator](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst/semantic-model-spec#create-a-semantic-model-using-the-model-generator).
 
 ## Supported Models
-Cortex Agents support the following LLMs:
+Cortex Agents support the following LLMs depending on your region:
 - `llama3.3-70b`
 - `mistral-large2`
 - `claude-3-5-sonnet`

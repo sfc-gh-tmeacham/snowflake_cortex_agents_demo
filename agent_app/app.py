@@ -227,6 +227,7 @@ class DataService:
                     col('"name"').alias('"Name"')
                 )
                 .with_column('"Full Name"', concat_ws(lit('.'), col('"Database"'), col('"Schema"'), col('"Name"')))
+                .filter(col('"Name"').startswith('_ANALYST_') == False)
             ).to_pandas()
             available_services['Active'] = False
             available_services['Max Results'] = 2
