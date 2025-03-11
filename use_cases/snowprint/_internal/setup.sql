@@ -28,6 +28,16 @@ CREATE OR REPLACE NOTEBOOK SETUP_AGENT_SNOWPRINT
         MAIN_FILE = 'SETUP_AGENT_SNOWPRINT.ipynb' 
         QUERY_WAREHOUSE = COMPUTE_WH;
 ALTER NOTEBOOK SETUP_AGENT_SNOWPRINT ADD LIVE VERSION FROM LAST;
+
+-- Custom Instructions for this demo
+CREATE OR REPLACE FUNCTION CORTEX_AGENTS_DEMO.SNOWPRINT.remove_duplicate_headers(text STRING)
+RETURNS STRING
+LANGUAGE PYTHON
+RUNTIME_VERSION = '3.11'
+HANDLER = 'clean_documents.remove_duplicate_headers'
+IMPORTS = ('@CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/{{BRANCH}}/use_cases/snowprint/_internal/clean_documents.py');
+
+-- Whether to execute the notebook or not during initial demo setup
 {% if EXECUTE_NOTEBOOKS %}
     EXECUTE NOTEBOOK SETUP_AGENT_SNOWPRINT();
 {%- endif -%}
