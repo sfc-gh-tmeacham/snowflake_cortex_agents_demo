@@ -18,7 +18,7 @@ This repository contains a **fictional dataset** from _Snowprint AG_. The datase
    Details the step-by-step process for each job (e.g., _Prepare_, _Printing_, _Quality Checks_) along with timestamps.  
    Example use: Analyzing production workflows, calculating turnaround times for each step, or optimizing bottlenecks.
 
-## Possible Business Use Cases
+### Possible Business Use Cases
 
 - **Customer Relationship Management**: Quickly view customers by region or generate lists of pending orders.
 - **Production Tracking**: Identify high-priority jobs, check which steps are completed, or spot delays in real time.
@@ -32,6 +32,11 @@ As examples this demo contains two documents from _Heidelberger Druckmaschinen_.
 | Prinect_Quick_Start_CR_en.pdf    | This document is the Prinect Manager CR Quick Start Guide, aimed at providing new users with a concise introduction to the Prinect system. It outlines the basic concepts and components of the Prinect Manager workflow, including job processing, user setup, and licensing. The guide offers step-by-step instructions for tasks such as creating print jobs, configuring sequence templates, and setting up printing equipment. It serves as a practical manual to quickly familiarize users with the operational aspects of the system in a digital print shop environment. |
 | Color_Management_2019_en.pdf     | This document is the Prinect Color Management 2019 User’s Guide, providing an in-depth overview of color management principles and practices in the Prinect workflow. It explains key concepts such as color space transformations, ICC profiles, and color gamuts. The guide discusses how various color spaces like RGB, CMYK, and CIEL*a*b* are utilized in print production to achieve accurate color reproduction. It also covers the standardized offset print process and quality control measures for maintaining consistency in color output. Designed for users in prepress and print production, it serves as a comprehensive reference for configuring and optimizing color settings. |
 
+### Possible Business Use Cases
+
+- **Onboarding**: Accelerate the learning process for new team members by providing them with an intelligent assistant (🤖) that can address their questions in real time.  
+- **Troubleshooting**: Quickly resolve common prepress or color management issues using established best practices and standardized configurations from the guides.  
+- **Customer Support**: Offer immediate solutions to customers, eliminating lengthy wait times and reducing the need for direct expert intervention.
 
 ## Example Questions
 ### Selected Services:
