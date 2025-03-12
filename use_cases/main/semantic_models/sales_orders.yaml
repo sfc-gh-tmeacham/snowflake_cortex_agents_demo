@@ -48,11 +48,11 @@ tables:
           - state
           - province
           - nationality
-        cortex_search_service_name: CORTEX_AGENTS_DEMO.MAIN.COUNTRY_SEARCH
+        cortex_search_service_name: CORTEX_AGENTS_DEMO.MAIN._ANALYST_COUNTRY_SEARCH
         cortex_search_service:
           database: CORTEX_AGENTS_DEMO
           schema: MAIN
-          service: COUNTRY_SEARCH
+          service: _ANALYST_COUNTRY_SEARCH
       - name: STATUS
         expr: STATUS
         data_type: VARCHAR(16777216)
@@ -124,11 +124,11 @@ tables:
           - ware
           - stock
           - produce
-        cortex_search_service_name: CORTEX_AGENTS_DEMO.MAIN.PRODUCT_SEARCH
+        cortex_search_service_name: CORTEX_AGENTS_DEMO.MAIN._ANALYST_PRODUCT_SEARCH
         cortex_search_service:
           database: CORTEX_AGENTS_DEMO
           schema: MAIN
-          service: PRODUCT_SEARCH
+          service: _ANALYST_PRODUCT_SEARCH
     primary_key:
       columns:
         - PRODUCT
@@ -168,11 +168,11 @@ tables:
           - patron
           - shopper
           - consumer
-        cortex_search_service_name: CORTEX_AGENTS_DEMO.MAIN.CUSTOMER_SEARCH
+        cortex_search_service_name: CORTEX_AGENTS_DEMO.MAIN._ANALYST_CUSTOMER_SEARCH
         cortex_search_service:
           database: CORTEX_AGENTS_DEMO
           schema: MAIN
-          service: CUSTOMER_SEARCH
+          service: _ANALYST_CUSTOMER_SEARCH
       - name: ORDER_ID
         expr: ORDER_ID
         data_type: VARCHAR(16777216)
