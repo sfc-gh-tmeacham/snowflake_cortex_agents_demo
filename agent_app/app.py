@@ -227,13 +227,12 @@ class DataService:
                     col('"name"').alias('"Name"')
                 )
                 .with_column('"Full Name"', concat_ws(lit('.'), col('"Database"'), col('"Schema"'), col('"Name"')))
-            ).to_pandas()
+            ).filter(col('"Name"').startswith('_ANALYST_') == False).to_pandas()
             available_services['Active'] = False
             available_services['Max Results'] = 2
             available_services = available_services[['Active','Name','Database','Schema','Max Results','Full Name']]
             return available_services
         except Exception as e:
-            None
             return pd.DataFrame(columns=['Active', 'Name', 'Database', 'Schema', 'Max Results', 'Full Name'])
     
     def execute_sql(self, sql: str) -> pd.DataFrame:
@@ -648,7 +647,9 @@ class APIService:
         for _, row in active_search.iterrows():
             tool_resources[row['Name']] = {
                 'name': row['Full Name'],
-                'max_results': row['Max Results']
+                'max_results': row['Max Results'],
+                'title_column':'RELATIVE_PATH',
+                'id_column':'CHUNK_INDEX'
             }
         
         # Add analyst services
@@ -1732,7 +1733,7 @@ def manage_search_services():
                 col('"name"').alias('"Name"')
             ).with_column(
                 '"Full Name"', concat_ws(lit('.'), col('"Database"'), col('"Schema"'), col('"Name"'))
-            ).to_pandas()
+            ).filter(col('"Name"').startswith('_ANALYST_') == False).to_pandas()
             
             services['Active'] = False
             services['Max Results'] = 2
@@ -1786,14 +1787,17 @@ def manage_analyst_services():
         if st.session_state.stages.empty:
             try:
                 # Direct query without caching
-                stages = session.sql('SHOW STAGES IN ACCOUNT').filter(
-                    col('"type"') == 'INTERNAL NO CSE'
-                ).select(
-                    col('"database_name"').alias('"Database"'),
-                    col('"schema_name"').alias('"Schema"'),
-                    col('"name"').alias('"Stage"')
-                ).distinct().order_by(
-                    ['"Database"','"Schema"','"Stage"']
+                stages = (
+                    session.sql('SHOW STAGES IN ACCOUNT')
+                    .filter( col('"type"') == 'INTERNAL NO CSE')
+                    .filter(col('"name"') != 'DOCUMENTS')
+                    .select(
+                        col('"database_name"').alias('"Database"'),
+                        col('"schema_name"').alias('"Schema"'),
+                        col('"name"').alias('"Stage"')
+                    )
+                    .distinct()
+                    .order_by(['"Database"','"Schema"','"Stage"'])
                 ).to_pandas()
                 
                 st.session_state.stages = stages
