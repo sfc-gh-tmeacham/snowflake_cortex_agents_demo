@@ -52,8 +52,7 @@ These queries operate on structured, tabular data sources.
 | Question | Data Complexity | Query Complexity |
 |----------|----------------|--------|
 | Provide an overview per calendar week of how many print jobs are still pending. | Single table, no Search Integration | 🟢 **Easy** |
-| Which customers in United Kingdom have the most jobs cancelled? Provide a top 10 list. | 2 tables, 1 Search Integration | 🟡 **Medium** |
-| TBD | TBD | 🔴 **Hard** |
+| Which customers in United Kingdom have the most jobs cancelled? Provide a top 10 list. | 2 tables, 1 Search Integration | 🔴 **Hard** |
 
 ### **Questions for Unstructured Data**  
 These queries analyze text-based documents.
