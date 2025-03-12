@@ -34,7 +34,6 @@ As an example, this demo contains two documents from _Heidelberger Druckmaschine
 | **Prinect_Quick_Start_CR_en.pdf** | A concise guide to the Prinect Manager workflow, covering job creation, user setup, and licensing with clear step-by-step examples. |
 | **Color_Management_2019_en.pdf**  | An in-depth overview of color management, explaining ICC profiles, color spaces, and best practices for consistent print output.  |
 
-
 ### Possible Business Use Cases
 
 - **Onboarding**: Accelerate the learning process for new team members by providing them with an intelligent assistant (🤖) that can address their questions in real time.  
