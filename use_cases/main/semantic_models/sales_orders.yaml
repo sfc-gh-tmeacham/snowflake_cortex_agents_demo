@@ -3,7 +3,7 @@ tables:
   - name: ORDERS
     base_table:
       database: CORTEX_AGENTS_DEMO
-      schema: PUBLIC
+      schema: MAIN
       table: ORDERS
     dimensions:
       - name: ORDER_ID
@@ -48,10 +48,10 @@ tables:
           - state
           - province
           - nationality
-        cortex_search_service_name: CORTEX_AGENTS_DEMO.PUBLIC.COUNTRY_SEARCH
+        cortex_search_service_name: CORTEX_AGENTS_DEMO.MAIN.COUNTRY_SEARCH
         cortex_search_service:
           database: CORTEX_AGENTS_DEMO
-          schema: PUBLIC
+          schema: MAIN
           service: COUNTRY_SEARCH
       - name: STATUS
         expr: STATUS
@@ -108,7 +108,7 @@ tables:
   - name: PRODUCTS
     base_table:
       database: CORTEX_AGENTS_DEMO
-      schema: PUBLIC
+      schema: MAIN
       table: PRODUCTS
     dimensions:
       - name: PRODUCT
@@ -124,10 +124,10 @@ tables:
           - ware
           - stock
           - produce
-        cortex_search_service_name: CORTEX_AGENTS_DEMO.PUBLIC.PRODUCT_SEARCH
+        cortex_search_service_name: CORTEX_AGENTS_DEMO.MAIN.PRODUCT_SEARCH
         cortex_search_service:
           database: CORTEX_AGENTS_DEMO
-          schema: PUBLIC
+          schema: MAIN
           service: PRODUCT_SEARCH
     primary_key:
       columns:
@@ -154,7 +154,7 @@ tables:
   - name: CUSTOMER_ORDERS
     base_table:
       database: CORTEX_AGENTS_DEMO
-      schema: PUBLIC
+      schema: MAIN
       table: CUSTOMER_ORDERS
     dimensions:
       - name: CUSTOMER
@@ -168,10 +168,10 @@ tables:
           - patron
           - shopper
           - consumer
-        cortex_search_service_name: CORTEX_AGENTS_DEMO.PUBLIC.CUSTOMER_SEARCH
+        cortex_search_service_name: CORTEX_AGENTS_DEMO.MAIN.CUSTOMER_SEARCH
         cortex_search_service:
           database: CORTEX_AGENTS_DEMO
-          schema: PUBLIC
+          schema: MAIN
           service: CUSTOMER_SEARCH
       - name: ORDER_ID
         expr: ORDER_ID
