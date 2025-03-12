@@ -92,7 +92,8 @@ CREATE OR REPLACE STREAMLIT CORTEX_AGENT_CHAT_APP
 ```
 
 If you want to deploy the different demo scenarios, you will need to run their setup.sql scripts in their respective folders.
-**Example for the deployment of the use case Main.**
+
+**Example for the deployment of the use case Main:**
 ```sql
 EXECUTE IMMEDIATE FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/use_cases/main/_internal/setup.sql
   USING (BRANCH => 'main', EXECUTE_NOTEBOOKS => FALSE) DRY_RUN = FALSE;
