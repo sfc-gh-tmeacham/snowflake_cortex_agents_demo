@@ -91,21 +91,20 @@ CREATE OR REPLACE STREAMLIT CORTEX_AGENT_CHAT_APP
     QUERY_WAREHOUSE = COMPUTE_WH;
 ```
 
-If you want to deploy the demo scenarios, you will need to run their setup.sql scripts:  
-**Main**
+If you want to deploy the different demo scenarios, you will need to run their setup.sql scripts in their respective folders.
+**Example for the deployment of the use case Main.**
 ```sql
 EXECUTE IMMEDIATE FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/use_cases/main/_internal/setup.sql
   USING (BRANCH => 'main', EXECUTE_NOTEBOOKS => FALSE) DRY_RUN = FALSE;
 ```
 
-**SnowPrint**
-```sql
-EXECUTE IMMEDIATE FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/use_cases/snowprint/_internal/setup.sql
-  USING (BRANCH => 'main', EXECUTE_NOTEBOOKS => FALSE) DRY_RUN = FALSE;
-```
-
 If you want to run the notebook immediately to set up all the required Cortex Search and Cortex Analyst services, set `EXECUTE_NOTEBOOKS => TRUE`.  
 Otherwise you will have to open the provided Snowflake Notebook and run all cells before you see the services in the Streamlit App.
+
+| Use Case | Description | Link |
+|:---:|:---:|---|
+| Main | Contains a fictional dataset about customer orders and their annual reports. | [Link](https://github.com/michaelgorkow/snowflake_cortex_agents_demo/tree/main/use_cases/main) |
+| SnowPrint | SnowPrint is a fictional company specializing in the sale of industrial printers. They gather data on customers, their printing jobs, and the various stages of the printing process. Additionally, they aim to integrate their product documentation into a chatbot for enhanced customer support. | [Link](https://github.com/michaelgorkow/snowflake_cortex_agents_demo/tree/main/use_cases/snowprint) |
 
 ## Objects Created in Your Snowflake Account
 

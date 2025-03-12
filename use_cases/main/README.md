@@ -3,6 +3,13 @@
 ## Overview
 First example for a very simple chatbot that works on structured and unstructured data.
 
+## Use Case Deployment
+Execute this SQL Query to create and run the notebook in your account which will generate data and required services.
+```sql
+EXECUTE IMMEDIATE FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/use_cases/main/_internal/setup.sql
+  USING (BRANCH => 'main', EXECUTE_NOTEBOOKS => TRUE) DRY_RUN = FALSE;
+```
+
 ## Structured Data & Use Cases
 This repository contains a **fictional dataset** about Customer orders. The dataset is split into three core tables:
 

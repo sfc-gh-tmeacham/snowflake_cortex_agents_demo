@@ -5,6 +5,13 @@
 ## Overview
 **Snowprint AG** is a global leader in industrial printing solutions, specializing in high-quality **offset and digital printing presses**, workflow automation, and post-press technologies. Our innovative solutions help print shops optimize efficiency, reduce waste, and achieve outstanding print quality. With a strong focus on **automation, digitalization, and sustainability**, SnowPrint AG drives the future of modern printing. Decades of expertise and cutting-edge technology make us the trusted partner for the printing industry worldwide.
 
+## Use Case Deployment
+Execute this SQL Query to create and run the notebook in your account which will generate data and required services.
+```sql
+EXECUTE IMMEDIATE FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/use_cases/snowprint/_internal/setup.sql
+  USING (BRANCH => 'main', EXECUTE_NOTEBOOKS => TRUE) DRY_RUN = FALSE;
+```
+
 ## Structured Data & Use Cases
 This repository contains a **fictional dataset** from _Snowprint AG_. The dataset is split into three core tables that capture different aspects of the company’s printing operations:
 
