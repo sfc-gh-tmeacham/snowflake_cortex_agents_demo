@@ -67,28 +67,8 @@ CREATE GIT REPOSITORY GITHUB_REPO_CORTEX_AGENTS_DEMO
 	API_INTEGRATION = 'GITHUB_INTEGRATION_CORTEX_AGENTS_DEMO' 
 	COMMENT = 'Github Repository from Michael Gorkow with a demo for Cortex Agents.';
 
--- Create stage for the Streamlit App
-CREATE OR REPLACE STAGE STREAMLIT_APP
-  DIRECTORY = (ENABLE = TRUE)
-  ENCRYPTION = ( TYPE = 'SNOWFLAKE_FULL' );
-  
--- Fetch most recent files from Github repository
-ALTER GIT REPOSITORY GITHUB_REPO_CORTEX_AGENTS_DEMO FETCH;
-
--- Copy Streamlit App into to stage
-COPY FILES
-  INTO @STREAMLIT_APP
-  FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/development/agent_app/;
-ALTER STAGE STREAMLIT_APP REFRESH;
-
--- Refresh the stage (this can remain static)
-ALTER STAGE STREAMLIT_APP REFRESH;
-
--- Create Streamlit App
-CREATE OR REPLACE STREAMLIT CORTEX_AGENT_CHAT_APP
-    ROOT_LOCATION = '@CORTEX_AGENTS_DEMO.PUBLIC.STREAMLIT_APP'
-    MAIN_FILE = '/app.py'
-    QUERY_WAREHOUSE = COMPUTE_WH;
+-- Run the installation of the Streamlit App
+EXECUTE IMMEDIATE FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/setup.sql;
 ```
 
 If you want to deploy the different demo scenarios, you will need to run their setup.sql scripts in their respective folders.
@@ -118,7 +98,7 @@ In your Snowflake account, the demo resources are organized as follows:
   - The **Streamlit Agent App** is located in the `PUBLIC` schema.  
   - Each **use case** has its own schema. For example, if you install SnowPrint, a schema named `SNOWPRINT` will be created.
 
-- **For Each Use Case, the Following Objects Are Created:**  
+- **For each Use Case, the following Objects are created:**  
   - `DOCUMENTS` stage – Stores unstructured data (e.g., documents).  
   - `SEMANTIC_MODELS` stage – Contains semantic models.  
   - **Notebook** – Creates structured data and sets up Cortex Search services.
@@ -145,4 +125,3 @@ For more details, check out Snowflake’s official documentation:
 ## Kudos  
 A huge shoutout to my colleague [Tom Christian](https://github.com/sfc-gh-tchristian) for elevating the Streamlit app to the next level! 🚀   
 ![GitHub Profile](https://github.com/sfc-gh-tchristian.png?size=50)  
-

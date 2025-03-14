@@ -183,7 +183,7 @@ class DataService:
         try:
             stages = (
                 self.session.sql('SHOW STAGES IN ACCOUNT')
-                .filter(col('"type"') == 'INTERNAL NO CSE')
+                .filter(col('"type"') != 'INTERNAL TEMPORARY')
                 .select(
                     col('"database_name"').alias('"Database"'),
                     col('"schema_name"').alias('"Schema"'),
@@ -1789,7 +1789,7 @@ def manage_analyst_services():
                 # Direct query without caching
                 stages = (
                     session.sql('SHOW STAGES IN ACCOUNT')
-                    .filter( col('"type"') == 'INTERNAL NO CSE')
+                    .filter( col('"type"') != 'INTERNAL TEMPORARY')
                     .filter(col('"name"') != 'DOCUMENTS')
                     .select(
                         col('"database_name"').alias('"Database"'),
