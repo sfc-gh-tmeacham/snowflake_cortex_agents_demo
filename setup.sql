@@ -11,7 +11,7 @@ BEGIN
   SYSTEM$LOG_INFO('Bundle 2025_01 is ' || :status_2025_01);
   
   -- Check if the bundle is ENABLED and execute appropriate commands
-  IF (status_2025_01 = 'ENABLED') THEN
+  IF (status_2025_01 = 'ENABLED' OR status_2025_01 = 'RELEASED') THEN
 
     -- Create Streamlit with multifile editing
     CREATE STREAMLIT CORTEX_AGENT_CHAT_APP
