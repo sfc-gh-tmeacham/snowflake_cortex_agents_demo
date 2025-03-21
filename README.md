@@ -42,41 +42,17 @@ This is the App you will build:
 Here you can get a free [Snowflake Trial Account](https://signup.snowflake.com/).
 
 ## Setup
-All you need to do is to execute the following SQL statements in your Snowflake Account.  
-
-```sql
-
-USE ROLE ACCOUNTADMIN;
-
--- Create a warehouse
-CREATE WAREHOUSE IF NOT EXISTS COMPUTE_WH WITH WAREHOUSE_SIZE='X-SMALL';
-
--- Create a fresh Database
-CREATE OR REPLACE DATABASE CORTEX_AGENTS_DEMO;
-
--- Create the API integration with Github
-CREATE OR REPLACE API INTEGRATION GITHUB_INTEGRATION_CORTEX_AGENTS_DEMO
-    api_provider = git_https_api
-    api_allowed_prefixes = ('https://github.com/michaelgorkow/')
-    enabled = true
-    comment='Git integration with Michael Gorkows Github Repository.';
-
--- Create the integration with the Github demo repository
-CREATE GIT REPOSITORY GITHUB_REPO_CORTEX_AGENTS_DEMO
-	ORIGIN = 'https://github.com/michaelgorkow/snowflake_cortex_agents_demo' 
-	API_INTEGRATION = 'GITHUB_INTEGRATION_CORTEX_AGENTS_DEMO' 
-	COMMENT = 'Github Repository from Michael Gorkow with a demo for Cortex Agents.';
 
 -- Run the installation of the Streamlit App
-EXECUTE IMMEDIATE FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/setup.sql;
+EXECUTE IMMEDIATE FROM @GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/hol/setup.sql;
 ```
 
 If you want to deploy the different demo scenarios, you will need to run their setup.sql scripts in their respective folders.
 
 **Example for the deployment of the use case Main:**
 ```sql
-EXECUTE IMMEDIATE FROM @CORTEX_AGENTS_DEMO.PUBLIC.GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/main/use_cases/main/_internal/setup.sql
-  USING (BRANCH => 'main', EXECUTE_NOTEBOOKS => FALSE) DRY_RUN = FALSE;
+EXECUTE IMMEDIATE FROM @GITHUB_REPO_CORTEX_AGENTS_DEMO/branches/hol/use_cases/main/_internal/setup.sql
+  USING (BRANCH => 'hol', EXECUTE_NOTEBOOKS => FALSE) DRY_RUN = FALSE;
 ```
 
 If you want to run the notebook immediately to set up all the required Cortex Search and Cortex Analyst services, set `EXECUTE_NOTEBOOKS => TRUE`.  
@@ -84,8 +60,8 @@ Otherwise you will have to open the provided Snowflake Notebook and run all cell
 
 | Use Case | Description | Link |
 |:---:|:---:|---|
-| Main | Contains a fictional dataset about customer orders and their annual reports. | [Link](https://github.com/michaelgorkow/snowflake_cortex_agents_demo/tree/main/use_cases/main) |
-| SnowPrint | SnowPrint is a fictional company specializing in the sale of industrial printers. They gather data on customers, their printing jobs, and the various stages of the printing process. Additionally, they aim to integrate their product documentation into a chatbot for enhanced customer support. | [Link](https://github.com/michaelgorkow/snowflake_cortex_agents_demo/tree/main/use_cases/snowprint) |
+| Main | Contains a fictional dataset about customer orders and their annual reports. ||
+| SnowPrint | SnowPrint is a fictional company specializing in the sale of industrial printers. They gather data on customers, their printing jobs, and the various stages of the printing process. Additionally, they aim to integrate their product documentation into a chatbot for enhanced customer support. |  |
 
 ## Objects Created in Your Snowflake Account
 
