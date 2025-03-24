@@ -1823,7 +1823,7 @@ def manage_analyst_services():
         
         # Fetch files directly without caching
         try:
-            files = session.sql(f'LS @"{database}"."{schema}"."{stage}"').filter(
+            files = session.sql(f"LS '@\"{database}\".\"{schema}\".\"{stage}\"'").filter(
                 col('"size"') < 1000000
             ).filter(
                 (lower(col('"name"')).endswith('.yaml')) | 
